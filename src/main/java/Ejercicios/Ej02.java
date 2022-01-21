@@ -4,6 +4,7 @@
  */
 package Ejercicios;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -19,33 +20,32 @@ public class Ej02 {
      Si la altura leída no es positiva, el programa la pasará a número positivo. 
    También es necesario saber cuántas personas tienen una altura superior a la media e inferior a la media. */
         Scanner sc = new Scanner(System.in);
-        int numeroPersonas = 0, Altura = 0, AlturaMedia, sumaAltura = 0, SupMedia = 0, infMedia = 0;
-        
+        int numeroPersonas = 0;
+        double AlturaMedia = 0, sumaAltura = 0, SupMedia = 0, infMedia = 0;
+        do {
+            System.out.println("Introduce el numero de personas:");
+            numeroPersonas = sc.nextInt();
+        } while (numeroPersonas <= 0);
+        //crear y inisializar la lista
+        double[] AlturaPersonas = new double[numeroPersonas];
 
-        System.out.println("Introduce el numero de personas:");
-        numeroPersonas = sc.nextInt();
-        int[] AlturaPersonas = new int[numeroPersonas];
-        
         for (int i = 0; i < AlturaPersonas.length; i++) {
             System.out.println("Introduce la altura en cm:");
-            Altura = sc.nextInt();
-            if (Altura < 0) {
-                Altura *= -1;
-                AlturaPersonas[i] = Altura;
+            AlturaPersonas[i] = Math.abs(sc.nextInt());
+            sumaAltura += AlturaPersonas[i];
+            AlturaMedia = sumaAltura / numeroPersonas;
+            if (AlturaPersonas[i] >= AlturaMedia) {
+                SupMedia+=1;
             } else {
-                AlturaPersonas[i] = Altura;
+                infMedia+=1;
             }
 
-            sumaAltura += i;
-            AlturaMedia = sumaAltura / 2;
-            if (Altura > AlturaMedia) {
-                SupMedia++;
-            } else {
-                infMedia++;
-            }
         }
-        System.out.println("Numero personas superan la media son:" + SupMedia);
-        System.out.println("Numero personas inferior la media son:" + infMedia);
-
+        System.out.println(Arrays.toString(AlturaPersonas));
+        System.out.println("suma alturas:"+sumaAltura);
+        System.out.println("la altura media:"+AlturaMedia);
+        System.out.println("el numero de personas que superan la altura media:" + SupMedia);
+        System.out.println("el numero de personas inferior de la altura media:" + infMedia);
     }
+
 }

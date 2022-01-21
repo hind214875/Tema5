@@ -13,11 +13,11 @@ public class Ej01 {
         //declarar la array y initializarla
         int[] arrayEnteros={1, 2, 3, 4, 5, 6};
         int suma = 0;
-        for(int i=1;i<arrayEnteros.length;i++){
+        for(int i=0;i<arrayEnteros.length;i++){
             System.out.println("arrayEnteros:"+arrayEnteros[i]);
-            suma+=i;
-            System.out.println("la suma es:"+suma);
+            suma+=i;            
         }
+        System.out.println("la suma es:"+suma);
         
     }
 }
