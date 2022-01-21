@@ -15,7 +15,7 @@ public class Ej01 {
         int suma = 0;
         for(int i=0;i<arrayEnteros.length;i++){
             System.out.println("arrayEnteros:"+arrayEnteros[i]);
-            suma+=i;            
+            suma+=arrayEnteros[i];            
         }
         System.out.println("la suma es:"+suma);
         

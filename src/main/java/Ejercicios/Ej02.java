@@ -31,19 +31,19 @@ public class Ej02 {
 
         for (int i = 0; i < AlturaPersonas.length; i++) {
             System.out.println("Introduce la altura en cm:");
-            AlturaPersonas[i] = Math.abs(sc.nextInt());
+            AlturaPersonas[i] = Math.abs(sc.nextInt());           
             sumaAltura += AlturaPersonas[i];
-            AlturaMedia = sumaAltura / numeroPersonas;
+            AlturaMedia = sumaAltura / AlturaPersonas.length;
             if (AlturaPersonas[i] >= AlturaMedia) {
-                SupMedia+=1;
+                SupMedia += 1;
             } else {
-                infMedia+=1;
+                infMedia += 1;
             }
 
-        }
+        }//hacerlo con metodos
         System.out.println(Arrays.toString(AlturaPersonas));
-        System.out.println("suma alturas:"+sumaAltura);
-        System.out.println("la altura media:"+AlturaMedia);
+        System.out.println("suma alturas:" + sumaAltura);
+        System.out.println("la altura media:" + AlturaMedia);
         System.out.println("el numero de personas que superan la altura media:" + SupMedia);
         System.out.println("el numero de personas inferior de la altura media:" + infMedia);
     }
