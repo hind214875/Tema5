@@ -34,7 +34,7 @@ public class Ej3 {
         System.out.println(Arrays.toString(array2));
         
         //Vuelve a compararlos, indicando si son iguales o no.
-         System.out.println(Arrays.equals(array, array2));
+         System.out.println(Arrays.equals(array, array2)? "eguales":"No eguales");
          System.out.println(Arrays.compare(array, array2));
     }
 }
