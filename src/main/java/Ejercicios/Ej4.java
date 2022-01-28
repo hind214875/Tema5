@@ -4,6 +4,7 @@
  */
 package Ejercicios;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,9 +17,8 @@ public class Ej4 {
     /*Escribe un programa que, dado un array de enteros de cualquier tamaño, busque si un número obtenido por teclado se encuentra en el array e imprima la primera posición en la que se encuentra el número. Realiza la búsqueda de un elemento:
 implementando el método de búsqueda secuencial. 
 usando el método de búsqueda binaria de la clase Arrays.*/
-    
     //metodos
-    private static int LeerPorTecladoArrayLenth() {
+    private static int LeerPorTeclado() {
         Scanner sc = new Scanner(System.in);
         boolean solicitarDatos = true;
         int lenthArray = 0;
@@ -26,7 +26,7 @@ usando el método de búsqueda binaria de la clase Arrays.*/
         do {
             solicitarDatos = true;
             try {
-                System.out.println("Introduce el lenth de array:");
+                System.out.println("Introduce el numero:");
                 lenthArray = sc.nextInt();
                 solicitarDatos = false;
             } catch (InputMismatchException ime) {
@@ -39,12 +39,12 @@ usando el método de búsqueda binaria de la clase Arrays.*/
         return lenthArray;
     }
 
-    public static int[] creatArrayDeXlenth() {
+    public static int[] creatArrayDeXlength() {
         boolean solicitarDatos = true;
-        
-        int arrayLenth=LeerPorTecladoArrayLenth();
-        int[] array=new int[arrayLenth];
-        
+
+        int arrayLenth = LeerPorTeclado();
+        int[] array = new int[arrayLenth];
+
         Scanner sc = new Scanner(System.in);
         do {
             solicitarDatos = true;
@@ -61,12 +61,24 @@ usando el método de búsqueda binaria de la clase Arrays.*/
             }
 
         } while (solicitarDatos);
-       return array;
+        return array;
     }
 
     public static void main(String[] args) {
-      creatArrayDeXlenth();
-      
+        int[] array = creatArrayDeXlength();
+        int numero = LeerPorTeclado();
+
+        //busceda secuencial
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == numero) {
+                System.out.println("el numero se encuentra en la posicion: " + i);
+                break;
+            }
+        }
+        //busceda binaria
+        //ordinar la lista premiro
+        Arrays.sort(array);
+        System.out.println(Arrays.binarySearch(array, numero));
 
     }
 
