@@ -53,7 +53,8 @@ public class JuegoJoker {
         int[] arrayElementos = new int[tamanyo];
         int[] arrayValorIntr = new int[tamanyo];
 
-        boolean bueno=false,premio=false;
+        boolean premio = true;
+        int contadorBueno = 0, contadorPremio = 0;
 
         //inicial el array con aleatorios
         for (int i = 0; i < arrayElementos.length; i++) {
@@ -63,34 +64,36 @@ public class JuegoJoker {
         System.out.println(Arrays.toString(arrayElementos));
 
         //inicial el array del usuario
-        for (int i = 0; i < arrayValorIntr.length; i++) {
-            arrayValorIntr[i] = LeerPorTeclado();
+        for (int j = 0; j < arrayValorIntr.length; j++) {
+            arrayValorIntr[j] = LeerPorTeclado();
         }
 
         for (int i = 0; i < arrayElementos.length; i++) {
             for (int j = 0; j < arrayValorIntr.length; j++) {
-                if (arrayValorIntr[i] == arrayElementos[i] ) {
-                    premio=true;
-                      if(i==j){
-                          bueno=true;
-                      }else{
-                          bueno=false;
-                      }
-                }else{
-                    premio=false;
+                if (arrayElementos[i] == arrayValorIntr[j]) {
+                    contadorPremio++;
+                    if (i == j) {
+                        contadorBueno++;
+                    }
                 }
             }
 
         }
-        
-        if(premio){
+
+        if (contadorPremio == (arrayElementos.length)) {
+            premio = true;
+        } else {
+            premio = false;
+        }
+
+        if (premio) {
             System.out.println("el Joker es premio");
-              if(bueno){
-                  System.out.println("el joker es bueno");
-              }else{
-                  System.out.println("el joker es malo");
-              }
-        }else{
+            if (contadorBueno == (arrayElementos.length)) {
+                System.out.println("el joker es bueno");
+            } else {
+                System.out.println("el joker es malo");
+            }
+        } else {
             System.out.println("el Joker no esta premio");
         }
 
