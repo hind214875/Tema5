@@ -35,30 +35,8 @@ public class Ej13 {
             if ((numero < 0 || numero > 20)) {
                 System.out.println("Introduce numero entre 0 y 20");
             }
-        } while ((numero < 0 || numero > 20) || solicitarDatos);
+        } while (solicitarDatos);
         return numero;
-    }
-
-    private static String generarHist(int[] arrayEnteros) {
-        String histograma = "";
-        int contador = 1;
-        Arrays.sort(arrayEnteros);
-        for (int i = 0; i < arrayEnteros.length; i++) {
-            for (int j = 1; j < arrayEnteros.length; j++) {
-                if (arrayEnteros[i] == arrayEnteros[j]) {
-                    contador++;
-                }
-            }
-            histograma += arrayEnteros[i] + " : ";
-            for (int k = 0; k < contador; k++) {
-                histograma += "*";
-
-            }
-            histograma += "\n";
-
-        }
-
-        return histograma;
     }
 
     public static void main(String[] args) {
@@ -81,15 +59,16 @@ public class Ej13 {
          */
 
         //crear una lista con tamaño de 20
-        int[] arrayEnteros = new int[10];
-
+        int[] arrayEnteros = new int[5];
+        int numero = 0;
         //rellenar el array pediendo al usuario
-        for (int i = 0; i < arrayEnteros.length; i++) {
-            arrayEnteros[i] = LeerPorTeclado();
-        }
-        //System.out.println(Arrays.toString(arrayEnteros));
+        do {
+            for (int i = 0; i < arrayEnteros.length; i++) {
+                numero = LeerPorTeclado();
+                arrayEnteros[i] = numero;
+            }
+        } while (numero != 0);
 
-        System.out.println(generarHist(arrayEnteros));
-
+        System.out.println(arrayEnteros);
     }
 }
