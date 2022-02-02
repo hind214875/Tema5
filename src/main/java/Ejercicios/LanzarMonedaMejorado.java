@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class LanzarMonedaMejorado {
     //atributos
-    private  boolean[] booleanos;//tamaño 1000
+    private  boolean[] booleanos;
 
     public LanzarMonedaMejorado() {
         
