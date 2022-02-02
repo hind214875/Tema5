@@ -19,8 +19,7 @@ public class Ej15PruebaLanzar {
 //        lanz.MostrarResultado();
         
         LanzarMonedaMejorado monedaMejorada=new LanzarMonedaMejorado();
-        monedaMejorada.ListaTamnio(100);
-        
+        monedaMejorada.ListaTamnio(150);        
         monedaMejorada.RellenarArray();
         System.out.println(monedaMejorada.CuantasCaras());
         System.out.println(monedaMejorada.CuantasCaras());
