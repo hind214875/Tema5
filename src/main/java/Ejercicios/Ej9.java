@@ -63,12 +63,11 @@ public class Ej9 {
         return array;
     }
 
-    //ordenar la lista  
-    static int[] ordenarBubble(int arrayOrdenar[]) {
+    static void ordenarBubble(int arrayOrdenar[]) {
         /* Bucle desde 0 hasta la longitud del array -1 */
-        for (int i = 0; i < arrayOrdenar.length - 1; i++) {      
+        for (int i = 0; i < arrayOrdenar.length - 1; i++) {
             for (int j = 0; j < arrayOrdenar.length - 1; j++) {
-                /* Si el número almacenado en la posición j es mayor que el de la posición j+1 (el siguiente del array) */ 
+                /* Si el número almacenado en la posición j es mayor que el de la posición j+1 (el siguiente del array) */
                 if (arrayOrdenar[j] > arrayOrdenar[j + 1]) {
                     /* guardamos el número de la posicion j+1 en una variable (el menor) */
                     int temp = arrayOrdenar[j + 1];
@@ -76,12 +75,10 @@ public class Ej9 {
                     arrayOrdenar[j + 1] = arrayOrdenar[j];
                     arrayOrdenar[j] = temp;
                     /* y volvemos al inicio para comparar los siguientes hasta que todos se hayan comparado*/
-                   /* de esta forma vamos dejando los números mayores al final del array en orden*/
-                   
-                }       
+ /* de esta forma vamos dejando los números mayores al final del array en orden*/
+                }
             }
         }
-       return arrayOrdenar;
     }
 
     public static void main(String[] args) {
@@ -96,11 +93,11 @@ public class Ej9 {
             }
         }
 
-//        ordinar la lista  
-//        Arrays.sort(array);
-          
+        // ordinar la lista  
+        //Arrays.sort(array);
+        ordenarBubble(array);
         //busceda binaria
-        System.out.println("el numero se encuentra en la posicion:"+Arrays.binarySearch(ordenarBubble(array), numero));
+        System.out.println("el numero se encuentra en la posicion:" + Arrays.binarySearch(array, numero));
 
     }
 
