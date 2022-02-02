@@ -53,7 +53,7 @@ public class Ej8 {
         for (int i = 0; i < array.length; i++) {
             array[i] = LeerPorTeclado();
         }
-        //
+        //mostrar array con *
         for (int i = 0; i < array.length; i++) {
             int valor = array[i];
             for (int j =valor-1; j>=0; j--) {
