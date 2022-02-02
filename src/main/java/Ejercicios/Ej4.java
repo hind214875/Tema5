@@ -14,9 +14,10 @@ import java.util.Scanner;
  */
 public class Ej4 {
 
-    /*Escribe un programa que, dado un array de enteros de cualquier tamaño, busque si un número obtenido por teclado se encuentra en el array e imprima la primera posición en la que se encuentra el número. Realiza la búsqueda de un elemento:
+/*Escribe un programa que, dado un array de enteros de cualquier tamaño, busque si un número obtenido por teclado se encuentra en el array e imprima la primera posición en la que se encuentra el número. Realiza la búsqueda de un elemento:
 implementando el método de búsqueda secuencial. 
 usando el método de búsqueda binaria de la clase Arrays.*/
+    
     //metodos
     private static int LeerPorTeclado() {
         Scanner sc = new Scanner(System.in);
@@ -79,6 +80,7 @@ usando el método de búsqueda binaria de la clase Arrays.*/
         //ordinar la lista premiro
         Arrays.sort(array);
         System.out.println(Arrays.binarySearch(array, numero));
+          
 
     }
 
