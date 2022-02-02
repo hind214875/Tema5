@@ -14,13 +14,12 @@ import java.util.Random;
 
 public class LanzarMoneda {
     //atributos
-    private  boolean[] booleanos=new boolean[1000];//tamaño 1000
+    private boolean[] booleanos=new boolean[1000];//tamaño 1000
 
     public LanzarMoneda() {
     }
 
     
-
     @Override
     public String toString() {
         return "LanzarMoneda{" + "booleanos=" + booleanos + '}';
