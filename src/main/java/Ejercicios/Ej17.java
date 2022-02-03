@@ -27,16 +27,20 @@ public class Ej17 {
     public static void main(String[] args) {
         /*Implementa un programa que lea un String, lo pase a minúscula, 
   lo introduzca en un array de caracteres y ordene dicho array siguiendo el orden Unicode (a<b<c<d...).*/
-        String palabra=LeerString();
-        int length=palabra.length();
+        
+        //int length=palabra.length();
         
         //crear array del string Introducido
-        char[] arrayChar=new char[length];
+        //char[] arrayChar=new char[length];
         
-        //rellenar el array con char de palabra
+        /*rellenar el array con char de palabra
         for(int i=0;i<arrayChar.length;i++){             
             arrayChar[i]=palabra.charAt(i); 
-        }
+        }*/
+        
+         String palabra=LeerString();
+        //para tener un list de char desde string
+        char[] arrayChar=palabra.toCharArray();
         Arrays.sort(arrayChar);
         System.out.println(Arrays.toString(arrayChar));
     }
