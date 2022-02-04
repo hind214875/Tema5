@@ -14,6 +14,25 @@ import java.util.Random;
  * @author hinda
  */
 public class Ej23 {
+    //metodos
+    public static void rellenarNumerosAleatorios(int elemntos,ArrayList<Integer> lista){
+        Random rd=new Random();
+        Integer aux;
+        for(int i=0;i<elemntos;i++){
+           aux=rd.nextInt();
+           lista.add(aux);
+        }
+    }
+    //el mismo metodo con 2 maneras
+    public static ArrayList<Integer> rellenarNumerosAleatorios(int elemntos){
+        Random rd=new Random();
+        ArrayList<Integer> listaAux=new ArrayList<>();
+        
+        for(int i=0;i<elemntos;i++){
+            listaAux.add(rd.nextInt());       
+        }
+        return listaAux;
+    }
 
     public static void main(String[] args) {
         //declaracion de las arrayList
@@ -29,11 +48,15 @@ public class Ej23 {
         Integer auxTwo = rd.nextInt(20 - 10 + 1) + 10;
         System.out.println("la longitud de list seconda: "+auxTwo);
         
+        
         //rellenar la lista 1 rango entre 50 y 100
         for (int i = 0; i < auxUno; i++) {
             int numero = rd.nextInt(100 - 50 + 1) + 1;
             listUno.add(numero);
         }
+        //rellenarNumerosAleatorios(auxUno, listUno);con metodo
+        //rellenarNumerosAleatorios(int elemnto);misma metodo in otro manera
+        //ArrayList<Integer>lista5=rellenarNumerosAleatorios(auxTwo)
         
         //rellenar la lista 2 rango entre 50 y 100
         for (int i = 0; i < auxTwo; i++) {
