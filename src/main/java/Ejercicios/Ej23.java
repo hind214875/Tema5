@@ -23,16 +23,18 @@ public class Ej23 {
         //contidad elemtos de la lista 1 numero aleatorio entre 5 y 15
         Random rd = new Random();
         Integer auxUno = rd.nextInt(11) + 5;
+        System.out.println("la longitud de list uno: "+auxUno);
 
         //cantidad de elemtos de la lista 2 numero aleatorio entre 10 y 20
         Integer auxTwo = rd.nextInt(20 - 10 + 1) + 10;
-
+        System.out.println("la longitud de list seconda: "+auxTwo);
+        
         //rellenar la lista 1 rango entre 50 y 100
         for (int i = 0; i < auxUno; i++) {
             int numero = rd.nextInt(100 - 50 + 1) + 1;
             listUno.add(numero);
         }
-
+        
         //rellenar la lista 2 rango entre 50 y 100
         for (int i = 0; i < auxTwo; i++) {
             int numero = rd.nextInt(100 - 50 + 1) + 1;
@@ -51,18 +53,14 @@ public class Ej23 {
         System.out.print("\n");
 
         //Crear una tercera lista que contenga los elementos que están en la lista 1 y NO ESTÁN en la lista 2 
-        ArrayList<Integer> listTree = new ArrayList<>();
-        boolean nonEquals = true;
+        ArrayList<Integer> listTree = new ArrayList<>(); 
         for (int i = 0; i < listUno.size(); i++) {
-            for (int j = 0; j < listTwo.size(); j++) {
-                if (listUno.get(i).equals(listTwo.get(j))) {
-                    nonEquals = false;
-                }
-            }
-            if (nonEquals) {
-                listTree.add(listUno.get(i));
+            Integer aux=listUno.get(i);
+            if(!(listTwo.contains(aux))){
+                listTree.add(aux);
             }
         }
+        
         //mostrar list tree
         listTree.forEach((tercera) -> {
             System.out.print(tercera + "-");
@@ -79,7 +77,7 @@ public class Ej23 {
         }
 
         for (int j = 0; j < listTwo.size(); j++) {
-            if (listUno.get(j) % 2 != 0) {
+            if (listTwo.get(j) % 2 != 0) {
                list4.add(listTwo.get(j));
             }
         }
