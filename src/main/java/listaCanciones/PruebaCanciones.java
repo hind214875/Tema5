@@ -41,10 +41,15 @@ public class PruebaCanciones {
         System.out.println("------Buscar con el idioma del cancion-------");
         playlist.buscarConIdioma("ingles").forEach(e -> System.out.println("[" + e + "]"));
         System.out.println("\n");
-        //borrar
 
-        Cancion c = new Cancion("ingles", "Hello", "Adele", 5);
+        //modificar Cancion
+        playlist.modificarCancion(new Cancion("ingles", "Hello", "Adele", 5), new Cancion("ingles", "Perfect", "ed Sharon", 6));
+        playlist.mostrarLista();
+
+        //borrar
+        Cancion c = new Cancion("ingles", "Rain", "Adele", 5);
         System.out.println(playlist.borrarCancion(c));
+        playlist.mostrarLista();
 
         //numero Canciones
         System.out.println("------Numero de Canciones en el playList-------");

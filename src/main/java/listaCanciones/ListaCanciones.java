@@ -26,7 +26,7 @@ public class ListaCanciones {
         if (cancion != null) {
             lista.add(cancion);
         }
-
+        
     }
 
     //borrar un objeto cancion si lo encuentra lo borra y devuelve true
@@ -37,7 +37,7 @@ public class ListaCanciones {
     //buscar con titulo
     public ArrayList<Cancion> buscarPorTitulo(String titulo) {
         ArrayList<Cancion> listaAux = new ArrayList<>();
-
+        
         for (Cancion cancion : lista) {
             if (cancion.getTitulo().equals(titulo)) {
                 listaAux.add(cancion);
@@ -49,7 +49,7 @@ public class ListaCanciones {
     //buscar con artista 
     public ArrayList<Cancion> buscarPorArtista(String artista) {
         ArrayList<Cancion> listaAux = new ArrayList<>();
-
+        
         for (Cancion cancion : lista) {
             if (cancion.getArtist().equals(artista)) {
                 listaAux.add(cancion);
@@ -59,14 +59,14 @@ public class ListaCanciones {
     }
 
     //buscar con idioma usando indexOf
-    public ArrayList<Cancion>  buscarConIdioma(String idioma) {
-         ArrayList<Cancion> listaAux = new ArrayList<>();
-         for (Cancion cancion : lista) {
-            if(cancion.getidioma().equalsIgnoreCase(idioma)){
+    public ArrayList<Cancion> buscarConIdioma(String idioma) {
+        ArrayList<Cancion> listaAux = new ArrayList<>();
+        for (Cancion cancion : lista) {
+            if (cancion.getidioma().equalsIgnoreCase(idioma)) {
                 listaAux.add(cancion);
             }
         }
-         return listaAux; 
+        return listaAux;
     }
 
     //mostrar lista
@@ -74,8 +74,25 @@ public class ListaCanciones {
         System.out.println("Imprimiendo lista de Canciones ....");
         lista.forEach(System.out::println);
     }
-    
-    public int numeroCanciones(){
+
+    //saber el tamaño de la lista
+    public int numeroCanciones() {
         return lista.size();
     }
+
+    //modificar
+    public void modificarCancion(Cancion cancionOld, Cancion cancionNew) {
+        
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getTitulo().equals(cancionOld.getTitulo()) && lista.get(i).getArtist().equals(cancionOld.getArtist())) {
+                lista.get(i).setidioma(cancionNew.getidioma());
+                lista.get(i).setTitulo(cancionNew.getTitulo());
+                lista.get(i).setArtist(cancionNew.getArtist());
+                lista.get(i).setRating(cancionNew.getRating());
+            }
+            
+        }
+        
+    }
+    
 }
