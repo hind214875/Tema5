@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package arrayList;
+package listaLibros;
 
-import listaLibros.Libro;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -33,47 +33,61 @@ public class ListaLibro {
         System.out.println("Imprimiendo lista de libros ....");
         lista.forEach(System.out::println);
     }
-    
-    public int getNumerolibros(){    
+
+    public int getNumerolibros() {
         return lista.size();
     }
-    
+
     //Eliminar un libro 
-    public boolean borrarLibro(Libro libro){
+    public boolean borrarLibro(Libro libro) {
         return lista.remove(libro);
     }
-    
+
     //buscar un libro
-    public Libro buscarISBNVieja(String isbn){
+    public Libro buscarISBNVieja(String isbn) {
         Libro aux;
-        for(int i=0;i<lista.size();i++){
-            aux=lista.get(i);
-            if(aux.getIsbn().equals(isbn)){
+        for (int i = 0; i < lista.size(); i++) {
+            aux = lista.get(i);
+            if (aux.getIsbn().equals(isbn)) {
                 return aux;
             }
         }
         return null;
     }
-    
-     public Libro buscarISBN(String isbn){
-         Libro aux=new Libro(isbn,"","",0,0);
-         int indice=lista.indexOf(aux);
-         if(indice>=0){
-             return lista.get(indice);
-         }
-         return null;
-     }
-     
-     public ArrayList<Libro> buscarPorPrecio(double precio){
-         ArrayList<Libro> auxList=new ArrayList<>();
-         
-         for (Libro libro : this.lista) {
-             if(libro.getPrecio()==precio){
-                 auxList.add(libro);
-             }
-         }
-         
-         return auxList;
-     }
 
+    public Libro buscarISBN(String isbn) {
+        Libro aux = new Libro(isbn, "", "", 0, 0);
+        int indice = lista.indexOf(aux);
+        if (indice >= 0) {
+            return lista.get(indice);
+        }
+        return null;
+    }
+
+    public ArrayList<Libro> buscarPorPrecio(double precio) {
+        ArrayList<Libro> auxList = new ArrayList<>();
+
+        for (Libro libro : this.lista) {
+            if (libro.getPrecio() == precio) {
+                auxList.add(libro);
+            }
+        }
+
+        return auxList;
+    }
+
+    //Collections.sort(lista) debe contener objetos que implementan comparable
+    public void ordenarISBN() {
+        Collections.sort(lista);
+    }
+
+    //busqueda binaria
+    //binarySearch no funciona si la lista esta desordenada
+    public int buscarISBN(Libro l) {
+        return Collections.binarySearch(lista, l);
+    }
+    
+    public void ordenarComparatorNombre(){
+        Collections.sort(lista, (Libro l1,Libro l2)->l1.getNombre().compareTo(l2.getNombre()));
+    }
 }
