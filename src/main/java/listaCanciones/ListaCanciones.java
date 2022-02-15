@@ -6,6 +6,7 @@
 package listaCanciones;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -95,4 +96,18 @@ public class ListaCanciones {
         
     }
     
+    //ordenar por artista
+    public void ordenarPorArtista(){
+        Collections.sort(lista);
+    }
+    
+    //busquidaBinarySearch
+    public int buscar(Cancion c){
+        return Collections.binarySearch(lista, c);
+    }
+    
+    //ordenar comparator
+     public void ordenarComparatorIdioma(){
+        Collections.sort(lista, (Cancion c1,Cancion c2)->c1.getidioma().compareTo(c2.getidioma()));
+    }
 }
