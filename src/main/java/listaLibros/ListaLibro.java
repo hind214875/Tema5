@@ -6,6 +6,7 @@ package listaLibros;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -90,4 +91,29 @@ public class ListaLibro {
     public void ordenarComparatorNombre(){
         Collections.sort(lista, (Libro l1,Libro l2)->l1.getNombre().compareTo(l2.getNombre()));
     }
+    
+     public void ordenarComparatorNumeroPagina(){
+        // Collections.sort(lista, (Libro l1,Libro l2)->l1.getNumeroPagenas()-l2.getNumeroPagenas());
+         //seconda manera de hacerlo
+         Collections.sort(lista, (Libro l1,Libro l2)->Integer.compare(l1.getNumeroPagenas(), l2.getNumeroPagenas()));
+         // we can delete the type Libro because as the list is type Libro so the type is knowing 
+         //this we call it Inferencia de tipos
+     }
+     
+     //ordenar por nombre y pagina
+     public void ordenarNombrePaginas(){
+         //crear objeto typo comparator
+         Comparator<Libro> criterioNombre= ( l1, l2)->l1.getNombre().compareTo(l2.getNombre());
+         Comparator<Libro> criterioNumeroPaginas= ( l1, l2)->l1.getNumeroPagenas()-l2.getNumeroPagenas(); 
+         //comaparar con dos critirios
+         Comparator<Libro> critirioNombrePaginas=criterioNombre.thenComparing(criterioNumeroPaginas);
+         //ordenar con los dos critirios
+         Collections.sort(lista,critirioNombrePaginas);
+     }
+     
+     //busqueda binaria por nombre
+     //lista debe estar ordenada segun el criterio que se pasa a este busqueda
+     public int buscarBinariaNombre(Libro l){
+        return Collections.binarySearch(lista, l,( l1, l2)->l1.getNombre().compareTo(l2.getNombre()));
+     }
 }
