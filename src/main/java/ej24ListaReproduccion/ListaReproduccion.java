@@ -116,4 +116,8 @@ public class ListaReproduccion {
      public int buscarPorTitulo(Cancion c){
          return Collections.binarySearch(canciones, c,(c1,c2)->c1.getTitulo().compareTo(c2.getTitulo()));
      }
+     
+     public int buscarPorArtista(Cancion c){
+         return Collections.binarySearch(canciones, c,(c1,c2)->c1.getArtist().compareTo(c2.getArtist()));
+     }
 }

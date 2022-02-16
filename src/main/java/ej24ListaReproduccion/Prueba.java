@@ -31,6 +31,8 @@ public class Prueba {
         System.out.println("Ordenar por cantante\n");
         lista1.ordinarCantanteComparator();
         lista1.mostrarLista();
+        System.out.println("la posicion es: "+lista1.buscarPorArtista(new Cancion("", "", "Lady Gaga", 0)));
+        
         
         //ordenar por rating al reverse
         System.out.println("ordinar por rating\n");
@@ -43,6 +45,9 @@ public class Prueba {
         lista1.mostrarLista();
         int posicion=lista1.buscarPorTitulo(new Cancion("", "DShallow", "", 0));
         System.out.println(" posicion: "+posicion);
+        
+       
+        
         
 //        System.out.println("\nimprimir los titulos de la lista");
 //        ListaReproduccion.imprimirLista(lista1);
