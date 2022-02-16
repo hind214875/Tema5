@@ -6,6 +6,7 @@ package ej24ListaReproduccion;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -110,6 +111,15 @@ public class ListaReproduccion {
         Collections.sort(canciones, (c1,c2)->Integer.compare(c1.getRating(), c2.getRating())); 
         Collections.reverse(canciones);
     }
+     
+    //ordenar by dos critirios
+     public void ordenartituloRatingComparator(){
+         Comparator<Cancion> criterioTitulo=(c1,c2)->c1.getTitulo().compareTo(c2.getTitulo());
+         Comparator<Cancion> criterioRating=(c1,c2)->Integer.compare(c1.getRating(), c2.getRating());
+         Comparator<Cancion> criterioTituloRating=criterioTitulo.thenComparing(criterioRating);
+         Collections.sort(canciones,criterioTituloRating);
+         Collections.reverseOrder();
+     }
      
     //Añade también métodos para buscar, usando Collections.binarySearch(lista, objeto, criterioComparator)
      

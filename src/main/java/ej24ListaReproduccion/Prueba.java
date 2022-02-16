@@ -16,37 +16,40 @@ public class Prueba {
 
         //System.out.println("la lista esta vacia?: " + lista1.estaVacia());
         
-        lista1.grabarCancion(new Cancion("español", "BBailando", "Enrique Iglesias", 4));
-        lista1.grabarCancion(new Cancion("español", "CMacarena", "Los Del Rios", 5));
-        lista1.grabarCancion(new Cancion("español", "EEres tu", "Mocedades", 3));
-        lista1.grabarCancion(new Cancion("ingles", "DShallow", "Lady Gaga", 6));
-        lista1.grabarCancion(new Cancion("ingles", "FRain", "Adele", 7));
+        lista1.grabarCancion(new Cancion("español", "BBB", "Enrique Iglesias", 4));
+        lista1.grabarCancion(new Cancion("español", "BBB", "Los Del Rios", 5));
+        lista1.grabarCancion(new Cancion("español", "BBB", "Mocedades", 3));
+        lista1.grabarCancion(new Cancion("ingles", "AAA", "Lady Gaga", 6));
+        lista1.grabarCancion(new Cancion("ingles", "CCC", "Adele", 7));
         
          
-        System.out.println("Ordenar por titulo\n");
+        System.out.println("\nOrdenar por titulo");
         lista1.ordinarPorTituloComparator();
         lista1.mostrarLista();
         
         //ordenar por artista
-        System.out.println("Ordenar por cantante\n");
+        System.out.println("\nOrdenar por cantante");
         lista1.ordinarCantanteComparator();
         lista1.mostrarLista();
         System.out.println("la posicion es: "+lista1.buscarPorArtista(new Cancion("", "", "Lady Gaga", 0)));
         
         
         //ordenar por rating al reverse
-        System.out.println("ordinar por rating\n");
+        System.out.println("\nordinar por rating");
         lista1.ordinarRatingComparator();
         lista1.mostrarLista();
         
         //buscar por titulo
-        System.out.println("ordenar por titulo\n");
+        System.out.println("\nordenar por titulo");
         lista1.ordinarPorTituloComparator();
         lista1.mostrarLista();
         int posicion=lista1.buscarPorTitulo(new Cancion("", "DShallow", "", 0));
         System.out.println(" posicion: "+posicion);
         
-       
+        //ordenar por 2criterios
+        System.out.println("\nordenar por titulo y rating");
+        lista1.ordenartituloRatingComparator();
+        lista1.mostrarLista();
         
         
 //        System.out.println("\nimprimir los titulos de la lista");
