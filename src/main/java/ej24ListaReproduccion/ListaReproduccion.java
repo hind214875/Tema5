@@ -5,6 +5,7 @@
 package ej24ListaReproduccion;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -95,6 +96,24 @@ public class ListaReproduccion {
         canciones.forEach(System.out::println);
     }
 
-    //Incluye un par de método de ordenación (por ejemplo, por título y por cantante) usando el método Collections.sort(lista, criterioComparator)
+    //Incluye un par de método de ordenación (por ejemplo,
+    //por título y por cantante) usando el método Collections.sort(lista, criterioComparator)
+    public void ordinarPorTituloComparator(){
+        Collections.sort(canciones,(c1,c2)->c1.getTitulo().compareTo(c2.getTitulo()));
+    }
+    
+    public void ordinarCantanteComparator(){
+        Collections.sort(canciones, (c1,c2)->c1.getArtist().compareTo(c2.getArtist()));   
+    }
+    
+     public void ordinarRatingComparator(){
+        Collections.sort(canciones, (c1,c2)->Integer.compare(c1.getRating(), c2.getRating())); 
+        Collections.reverse(canciones);
+    }
+     
     //Añade también métodos para buscar, usando Collections.binarySearch(lista, objeto, criterioComparator)
+     
+     public int buscarPorTitulo(Cancion c){
+         return Collections.binarySearch(canciones, c,(c1,c2)->c1.getTitulo().compareTo(c2.getTitulo()));
+     }
 }

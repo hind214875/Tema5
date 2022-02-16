@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author hinda
  */
-public class Cancion {
+public class Cancion implements Comparable<Cancion>{
     //atributos
 
     private String idioma;
@@ -102,6 +102,11 @@ public class Cancion {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int compareTo(Cancion c) {
+        return this.titulo.compareTo(c.titulo);
     }
 
 }
