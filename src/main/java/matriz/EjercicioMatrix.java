@@ -23,18 +23,18 @@ public class EjercicioMatrix {
         }
     }
 
-    public static void recorrerFila(int x, int[][] matriz) {
-        if (x >= 0 && x <= matriz.length) {
+    public static void recorrerFila(int fila, int[][] matriz) {
+        if (fila >= 0 && fila < matriz.length) {
             for (int i = 0; i < matriz.length; i++) {
-                System.out.println(matriz[x][i]);
+                System.out.println(matriz[fila][i]);
             }
         }
     }
 
-    public static void recorrerColumna(int x, int[][] matriz) {
-        if (x >= 0 && x <= matriz.length) {
+    public static void recorrerColumna(int columna, int[][] matriz) {
+        if (columna >= 0 && columna <= matriz[0].length) {
             for (int i = 0; i < matriz.length; i++) {
-                System.out.println(matriz[i][x]);
+                System.out.println(matriz[i][columna]);
             }
         }
     }
@@ -73,13 +73,33 @@ public class EjercicioMatrix {
     }
 
     public static void ImprimirPorConsola(int[][] matriz) {
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j] + " ");
+        for (int[] matriz1 : matriz) {
+            for (int j = 0; j < matriz1.length; j++) {
+                System.out.print(matriz1[j] + " ");
             }
             System.out.println();
         }
     }
+
+//    public static void recorrerVecinos(int fila, int columna, int[][] matriz) {
+//        if (fila < matriz.length && fila >= 0) {
+//            if (columna < matriz[0].length && columna >= 0) {
+//                
+//                for (int i = fila - 1; i <= fila+1; i++) {
+//                    if (i < matriz.length && i >= 0) {
+//                        
+//                        for (int j = columna - 1; j <= columna + 1; j++) {
+//                            if (j < matriz[i].length && j >= 0) {
+//                                System.out.println(matriz[i][j]);
+//                            }
+//                        }
+//                        
+//                    }
+//
+//                }
+//            }
+//        }
+//    }
 
     public static void main(String[] args) {
         //crear matriz
@@ -94,12 +114,13 @@ public class EjercicioMatrix {
         recorrerColumna(1, matriz);
 
         System.out.println("\n recorrer vecinos");
+        //recorrerVecinos(0,0,matriz);
 
         for (int i = 0; i < matriz.length; i++) {
 
             for (int j = 0; j < matriz[0].length; j++) {
 
-                System.out.println("neightbours of " + matriz[i][j]);
+                System.out.println("Vecinos de " + matriz[i][j]);
                 int neb[] = recorrerVecinas(i, j, matriz);
                 for (int k = 0; k < neb.length; k++) {
                     if (neb[k] != -1) {
@@ -111,5 +132,5 @@ public class EjercicioMatrix {
 
         }
     }
-
+//pokino
 }
